@@ -27,13 +27,14 @@ public class MainApp {
          System.out.println("First Name = "+user.getFirstName());
          System.out.println("Last Name = "+user.getLastName());
          System.out.println("Email = "+user.getEmail());
-         System.out.println();
          System.out.println("Car = "+ user.getUserCar());
+         System.out.println();
       }
-//      userService.listUsers().stream()
-//                      .forEach(user -> System.out.println(user.getUserCar()));
+      userService.listUsers().stream()
+                      .forEach(user -> System.out.println(user.getUserCar()));
 
-
+      User user = userService.getUserByCar(1234, "formula1");
+      System.out.println(user);
       context.close();
    }
 }

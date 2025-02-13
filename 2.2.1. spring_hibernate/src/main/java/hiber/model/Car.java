@@ -4,11 +4,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "cars")
+@IdClass(SeriesPK.class)
 public class Car {
 
     private String model;
 
     @Id
+    @Column(unique = true)
     private int series;
 
     public Car(String model, int series) {
@@ -20,9 +22,16 @@ public class Car {
 
     }
 
-    @OneToOne
-    @JoinColumn(name = "series")
+    @OneToOne(mappedBy = "userCar")
     private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getModel() {
         return model;
