@@ -20,7 +20,7 @@ public class User {
    private String email;
 
    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-   @JoinColumn(name = "series_car", unique = true)
+   @JoinColumn(name = "car_id")
    private Car userCar;
 
    public User() {}

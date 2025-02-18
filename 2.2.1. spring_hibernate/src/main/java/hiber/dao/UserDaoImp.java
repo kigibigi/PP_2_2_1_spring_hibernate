@@ -30,7 +30,7 @@ public class UserDaoImp implements UserDao {
    public User getUserByCar(int series, String model) {
       TypedQuery<User> query = sessionFactory.getCurrentSession().
                               createQuery("SELECT u FROM User u INNER JOIN Car c " +
-                                             "ON u.userCar.series = c.series " +
+                                             "ON u.userCar.id = c.id " +
                                              "WHERE c.series = :ser AND c.model = :model",
                                       User.class)
                             .setParameter("ser", series)

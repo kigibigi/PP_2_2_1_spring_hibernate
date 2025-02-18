@@ -1,7 +1,6 @@
 package hiber.config;
 
 import hiber.model.Car;
-import hiber.model.SeriesPK;
 import hiber.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

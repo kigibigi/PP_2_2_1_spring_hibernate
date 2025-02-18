@@ -4,13 +4,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "cars")
-@IdClass(SeriesPK.class)
 public class Car {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String model;
 
-    @Id
-    @Column(unique = true)
     private int series;
 
     public Car(String model, int series) {
@@ -20,6 +20,14 @@ public class Car {
 
     public Car() {
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @OneToOne(mappedBy = "userCar")
