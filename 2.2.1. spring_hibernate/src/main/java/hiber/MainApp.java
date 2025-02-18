@@ -16,12 +16,12 @@ public class MainApp {
 
       UserService userService = context.getBean(UserService.class);
 
-      userService.add(new User("User1", "Lastname1", "user1@mail.ru", new Car("formula1", 1234)));
-      userService.add(new User("User2", "Lastname2", "user2@mail.ru", new Car("formula2", 1235)));
-      userService.add(new User("User3", "Lastname3", "user3@mail.ru", new Car("formula3", 1236)));
-      userService.add(new User("User4", "Lastname4", "user4@mail.ru", new Car("formula4", 1237)));
+      userService.addUser(new User("User1", "Lastname1", "user1@mail.ru", new Car("formula1", 1234)));
+      userService.addUser(new User("User2", "Lastname2", "user2@mail.ru", new Car("formula2", 1235)));
+      userService.addUser(new User("User3", "Lastname3", "user3@mail.ru", new Car("formula3", 1236)));
+      userService.addUser(new User("User4", "Lastname4", "user4@mail.ru", new Car("formula4", 1237)));
 
-      List<User> users = userService.listUsers();
+      List<User> users = userService.getListUsers();
       for (User user : users) {
          System.out.println("Id = "+user.getId());
          System.out.println("First Name = "+user.getFirstName());
@@ -30,7 +30,7 @@ public class MainApp {
          System.out.println("Car = "+ user.getUserCar());
          System.out.println();
       }
-      userService.listUsers().stream()
+      userService.getListUsers().stream()
                       .forEach(user -> System.out.println(user.getUserCar()));
 
       User user = userService.getUserByCar(1234, "formula1");
